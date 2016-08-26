@@ -1,5 +1,5 @@
 # pwntools.translate
-***
+
 <!-- MarkdownTOC -->
 
 - [0x00 说明](#0x00-说明)
@@ -11,13 +11,13 @@
 
 * **重要说明：使用git时一定要先使用`git pull`将软件仓库的代码到pull到本地才开始自己的工作！否组很可能所有人的工作前功尽弃！**
 
-* participator : passexcel 、DrimTuer 、iphan
+* participator : passexcel, DrimTuer, iphan, swing
 
 * pwntools offical docs : [https://pwntools.readthedocs.io/en/latest](https://pwntools.readthedocs.io/en/latest)
 
 ## 0x00 说明
 
-就把pwntools官方文档的中文翻译作为这次假期要做的事情吧(滑稽)，暂定为先在[coding](www.coding.net)上初步完成，经过整理和校对后再导出PDF上传github。
+这是一个为[Pwntools](https://github.com/Gallopsled/pwntools)进行本地化的项目。
 
 ## 0x01 markdown规范
 
@@ -37,10 +37,10 @@
 
 * `Markdown Extended`，支持markdown语法高亮。
 
-## 0x03 其他说明
+## 0x03 分工 & 版本
 
-* `about pwntools、installation、getting started、from pwn import *、command line tools`五章前三章由一个人完成，剩下两章分别由两个人完成。
+鉴于Pwntools更新频繁，组员均为业余时间进行翻译，翻译原本采用stable版。之后正式提交时再校对为latest。
 
-* 文档中剩余的章节均为一人一章。
+* 前五章已经完成
 
-* 有关issue：每个人写翻译的时候自己提交一个issue说明好章节，以免重复（所以要常上coding看看任务列表）。每一个人完成自己所翻译的章节后，再提交一个有关review的issue，以便复核等等操作。
+* //TODO
