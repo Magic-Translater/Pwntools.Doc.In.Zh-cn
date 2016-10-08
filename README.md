@@ -13,7 +13,7 @@
 
 * participator : passexcel, DrimTuer, iphan, swing
 
-* pwntools offical docs : [https://pwntools.readthedocs.io/en/latest](https://pwntools.readthedocs.io/en/latest)
+* pwntools offical docs : [http://docs.pwntools.com/en/stable/](http://docs.pwntools.com/en/stable/)
 
 ## 0x00 说明
 
