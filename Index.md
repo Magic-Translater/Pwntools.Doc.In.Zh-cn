@@ -38,34 +38,49 @@
 11. pwnlib.context -- Seting runtime variables
 12. pwnlib.dynelf --Resolving remote functions using leaks
     * Example
-13. pwnlib.elf -- Working with ELF binaries
-14. pwnlib.exception -- Pwnlib exceptions
-15. pwnlib.gdb -- Working with GDB
-16. pwnlib.log and  -- Logging stuff
+13. pwnlib.encoders -- Encoding Shellcode
+14. pwnlib.elf -- Working with ELF binaries
+15. pwnlib.exception -- Pwnlib exceptions
+16. pwnlib.fmtstr -- Format string bug exploitation tools
+	* Example - Payload generation
+	* Example - Automated exploitation
+17. pwnlib.gdb -- Working with GDB
+18. pwnlib.log and  -- Logging stuff
     * Exploit Developers
     * Pwnlib Developers
-17. pwnlib.memleak --Helper class for leaking memory
-18. pwnlib.replacements -- Replacements for various functions
-19. pwnlib.rop -- Return Oriented Programming
-20. pwnlib.shellcodecraft -- Shellcode generation
+19. pwnlib.memleak --Helper class for leaking memory
+20. pwnlib.replacements -- Replacements for various functions
+21. pwnlib.rop -- Return Oriented Programming
+22. pwnlib.rop.rop -- Reyurn Oriented Programming
+23. pwnlib.rop.srop -- Sigreturn Oriented Programming
+24. pwnlib.runner -- Running Shellcode
+25. pwnlib.shellcodecraft -- Shellcode generation
     * Submodules
-21. pwnlib.term -- Terminal handing
-22. pwnlib.timeout -- Timeout handling
-23. pwnlib.tubs -- Talking to the World!
+26. pwnlib.shellcraft,amd64 -- Shellcode for AMD64
+27. pwnlib.shellcraft.arm -- Shellcode for ARM
+28. pwnlib.shellcraft.common — Shellcode common to all architecture
+29. pwnlib.shellcraft.i386 — Shellcode for Intel 80386
+30. pwnlib.regsort — Register sorting
+31. pwnlib.shellcraft.thumb — Shellcode for Thumb Mode
+32. pwnlib.term -- Terminal handing
+33. pwnlib.timeout -- Timeout handling
+34. pwnlib.tubs -- Talking to the World!
     * Sockets
     * Processes
     * SSH
     * Common functionality
-24. pwnlib.ui -- Functions for user interaction
-25. pwnlib.useragents -- A database of useragent strings
-26. pwnlib.util.crc -- Calculating CRC-sums
-27. pwnlib.util.cycclic -- Geberation of unique sequences
-28. pwnlib.util.fidding -- Utilities bit fidding
-29. pwnlib.util.hashes -- Hashing functions
-30. pwnlib.util.iters -- Extension of standard module itertools
-31. pwnlib.util.misc -- We could not fit it any other place
-32. pwnlib.util.net -- Networking interfaces
-33. pwnlib.util.packing -- Packing and unpacking of strings
-34. pwnlib.util.proc -- Working with /proc/
-35. pwnlib.util.safeeval -- Safe evaluation of python code
-36. pwnlib.util.web -- Utilities for working with the WWW
+35. pwnlib.ui -- Functions for user interaction
+36. pwnlib.useragents -- A database of useragent strings
+37. pwnlib.util.crc -- Calculating CRC-sums
+38. pwnlib.util.cycclic -- Geberation of unique sequences
+39. pwnlib.util.fidding -- Utilities bit fidding
+40. pwnlib.util.hashes -- Hashing functions
+41. pwnlib.util.iters -- Extension of standard module itertools
+42. pwnlib.util.lists — Operations on lists
+43. pwnlib.util.misc -- We could not fit it any other place
+44. pwnlib.util.net -- Networking interfaces
+45. pwnlib.util.packing -- Packing and unpacking of strings
+46. pwnlib.util.proc -- Working with /proc/
+47. pwnlib.util.safeeval -- Safe evaluation of python code
+48. pwnlib.util.web -- Utilities for working with the WWW
+49. pwnlib.testexample — Example Test Module
