@@ -39,7 +39,7 @@
 
 每一章对应一份文件, 存放在source下, 文件名为`标号.章节名`.
 
-章节名称只截取`--`后的部分.
+章节名称只截取`--`的前半部分.
 
 eg:
 
@@ -50,5 +50,5 @@ eg:
 
 15. pwnlib.elf -- Working with ELF binaries
 =>
-15.Working_with_ELF_binaries
+15.pwnlib_elf
 ```
