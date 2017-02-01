@@ -1,23 +1,15 @@
-# pwntools.translate
+# pwntools translate
 
-<!-- MarkdownTOC -->
+**请使用`git feth; git merge origin/master`进行同步更新.**
 
-- [0x00 说明](#0x00-说明)
-- [0x01 markdown规范](#0x01-markdown规范)
-- [0x02 编辑环境配置](#0x02-编辑环境配置)
-- [0x03 分工&版本](#0x03-分工&版本)
-
-<!-- /MarkdownTOC -->
-
-* **重要说明：使用git时一定要先使用`git pull`将软件仓库的代码到pull到本地才开始自己的工作！否组很可能所有人的工作前功尽弃！**
-
-* participator : passexcel, DrimTuer, iphan, swing
-
-* pwntools offical docs : [http://docs.pwntools.com/en/stable/](http://docs.pwntools.com/en/stable/)
+**重要工作请使用分支和GitHub RP**
 
 ## 0x00 说明
 
 这是一个为[Pwntools](https://github.com/Gallopsled/pwntools)进行本地化的项目。
+
+* participator : passexcel, DrimTuer, iphan, swing
+* pwntools offical docs : [http://docs.pwntools.com/en/stable/](http://docs.pwntools.com/en/stable/)
 
 ## 0x01 markdown规范
 
@@ -37,21 +29,26 @@
 
 * `Markdown Extended`，支持markdown语法高亮。
 
-## 0x03 分工&版本
+其它现代编辑器以及远古神级编辑器都有对Markdown的原生支持(如Atom)或者插件支持.
 
-鉴于Pwntools更新频繁，组员均为业余时间进行翻译，翻译原本采用stable版。之后正式提交时再校对为latest。
+## 0x03 版本 & 命名规范
 
-* 前五章以由众人共同完成
-* 每人自行选取感觉适合的**一整个章节**进行翻译。
-* 文件命名方式：同Index文件的命名。特殊字符如\*可替换为下划线等等。
+文档版本采用release. 定期维护一份Index目录, 一切变动以Index为准.
 
-**翻译前的准备工作：**
+命名规范:
 
-* 首先commit一个空文件。
-* 在Index文件处添加自己的ID
-* 在Index文件更新时，自行更新对应的文件名。
+每一章对应一份文件, 存放在source下, 文件名为`标号.章节名`.
 
-**关于更新Index**
+章节名称只截取`--`后的部分.
 
-* Pwntools自身一直在不断更新，对应的文档也会发生变动，一但docs源被更新，Index文件也需同步更新。
-* 每次Index更新之后，请**以显著的方式提醒所有成员**，如issue/群消息。
+eg:
+
+```
+05. Command Line Tools
+=>
+05.Command_Line_Tools
+
+15. pwnlib.elf -- Working with ELF binaries
+=>
+15.Working_with_ELF_binaries
+```
