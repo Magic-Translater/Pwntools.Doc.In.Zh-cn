@@ -1,8 +1,7 @@
 About pwntools
 ========================
 
-Whether you're using it to write exploits, or as part
-of another software project will dictate how you use it.
+无论你是用pwntools去编写exp，还是利用它作为你软件工程的一部分，你都应该规定你如何使用pwntools。
 
 Historically pwntools was used as a sort of exploit-writing DSL. Simply doing
 ``from pwn import *`` in a previous version of pwntools would bring all sorts of
