@@ -1,5 +1,5 @@
 # pwntools translate
-[![Docs](http://pwntoolsdocinzh-cn.readthedocs.io/en/latest/)](https://docs.pwntools.com/)
+[![Docs](http://pwntoolsdocinzh-cn.readthedocs.io/en/latest/?badge=latest)]
 ## 0x00 说明
 
 这是一个为[Pwntools](https://github.com/Gallopsled/pwntools)进行汉化的项目。
