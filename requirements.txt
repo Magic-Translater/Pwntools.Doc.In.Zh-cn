@@ -1,3 +1,4 @@
+pwntools
 sphinxcontrib-napoleon
 sphinxcontrib-autoprogram==0.1.2
 isort
