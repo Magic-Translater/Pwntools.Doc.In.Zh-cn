@@ -1,9 +1,9 @@
 Python Development Headers
 -----------------------------
 
-Some of pwntools' Python dependencies require native extensions (for example, Paramiko requires PyCrypto).
+一些 pwntools' 的Python 依赖于本地扩展 (例如, Paramiko 依赖 PyCrypto).
 
-In order to build these native extensions, the development headers for Python must be installed.
+为了编译这些本地扩展, 你必须首先安装Python的开发环境。
 
 Ubuntu
 ^^^^^^^^^^^^^^^^

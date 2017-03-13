@@ -1,20 +1,18 @@
-Binutils
+二进制工具
 -------------
 
-Assembly of foreign architectures (e.g. assembling Sparc shellcode on
-Mac OS X) requires cross-compiled versions of ``binutils`` to be
-installed. We've made this process as smooth as we can.
+对外来架构的汇编（比如在Mac OS X上汇编Sparc shellcode），需要各种跨版本的二进制工具的安装，我们已尽可能使安装过程流畅。
 
-In these examples, replace ``$ARCH`` with your target architecture (e.g., arm, mips64, vax, etc.).
+在下列的例子中，将你自己的目标架构代替$ARCH(例如arm, mips64, vax等等)。
 
-Building `binutils` from source takes about 60 seconds on a modern 8-core machine.
+编译二进制工具在现代8核计算机上大约花费60秒。
 
 Ubuntu
 ^^^^^^^^^^^^^^^^
 
-For Ubuntu 12.04 through 15.10, you must first add the pwntools `Personal Package Archive repository <http://binutils.pwntools.com>`__.
+对于从Ubuntu 12.04到15.10的发行版，你首先需要添加pwntools的`个人包存档库 <http://binutils.pwntools.com>`__。
 
-Ubuntu Xenial (16.04) has official packages for most architectures, and does not require this step.
+对于 Ubuntu Xenial (16.04) 已经拥有官方的包，不需要做下面的步骤。
 
 .. code-block:: bash
 
@@ -22,7 +20,7 @@ Ubuntu Xenial (16.04) has official packages for most architectures, and does not
     $ apt-add-repository ppa:pwntools/binutils
     $ apt-get update
 
-Then, install the binutils for your architecture.
+接着，安装符合自己计算机架构的二进制工具。
 
 .. code-block:: bash
 
@@ -31,21 +29,17 @@ Then, install the binutils for your architecture.
 Mac OS X
 ^^^^^^^^^^^^^^^^
 
-Mac OS X is just as easy, but requires building binutils from source.
-However, we've made ``homebrew`` recipes to make this a single command.
-After installing `brew <http://brew.sh>`__, grab the appropriate
-recipe from our `binutils
+Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装`brew <http://brew.sh>`__ 之后, 从这个链接获取我们的二进制工具： `binutils
 repo <https://github.com/Gallopsled/pwntools-binutils/>`__.
 
 .. code-block:: bash
 
     $ brew install https://raw.githubusercontent.com/Gallopsled/pwntools-binutils/master/osx/binutils-$ARCH.rb
 
-Alternate OSes
+其他系统
 ^^^^^^^^^^^^^^^^
 
-If you want to build everything by hand, or don't use any of the above
-OSes, ``binutils`` is simple to build by hand.
+如果你想通过自己的手动编译安装，并且不是上面两个系统之一，编译二进制工具也非常简单，运行下面的脚本即可。
 
 .. code-block:: bash
 
@@ -82,4 +76,3 @@ OSes, ``binutils`` is simple to build by hand.
 
     $MAKE -j clean all
     sudo $MAKE install
-
