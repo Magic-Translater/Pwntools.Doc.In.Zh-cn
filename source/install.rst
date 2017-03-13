@@ -1,15 +1,12 @@
-Installation
+安装
 ============
 
-pwntools is best supported on Ubuntu 12.04 and 14.04, but most
-functionality should work on any Posix-like distribution (Debian, Arch,
-FreeBSD, OSX, etc.).
+pwntools在ubuntu 12.04和 14.04系统上支持的最好，但在功能上讲也可以在Posix系的系统上工作（Debian, Arch, FreeBSD, OSX, 等等）。
 
-Prerequisites
+先决条件
 -------------
 
-In order to get the most out of ``pwntools``, you should have the
-following system libraries installed.
+为了能使`pwntools`发挥的更棒，你应该安装下列的系统库。
 
 .. toctree::
    :maxdepth: 3
@@ -17,10 +14,10 @@ following system libraries installed.
 
    install/*
 
-Released Version
+最新发行版
 -----------------
 
-pwntools is available as a ``pip`` package.
+现在pwntools是一个``pip``包。
 
 .. code-block:: bash
 
@@ -28,10 +25,10 @@ pwntools is available as a ``pip`` package.
     $ apt-get install python2.7 python-pip python-dev git libssl-dev libffi-dev
     $ pip install --upgrade pwntools
 
-Development
+开发版
 --------------
 
-If you are hacking on Pwntools locally, you'll want to do something like this:
+如果你要在本地定制自己的pwntools，你应该这样做：
 
 .. code-block:: bash
 
