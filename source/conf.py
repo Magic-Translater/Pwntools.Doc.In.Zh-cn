@@ -211,9 +211,7 @@ htmlhelp_basename = 'pwntoolsdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
-#print os.environ['PDFLATEX']
-os.environ['PDFLATEX']='xelatex'
-print os.environ['PDFLATEX']
+
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
