@@ -211,7 +211,9 @@ htmlhelp_basename = 'pwntoolsdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
-latex_engine = 'xelatex'
+#print os.environ['PDFLATEX']
+os.environ['PDFLATEX']='xelatex'
+print os.environ['PDFLATEX']
 latex_elements = {
     'papersize' : 'a4paper',
     'utf8extra' : '',
