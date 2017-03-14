@@ -211,7 +211,7 @@ htmlhelp_basename = 'pwntoolsdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
-
+latex_engine = 'xelatex'
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
     latex_elements = {
