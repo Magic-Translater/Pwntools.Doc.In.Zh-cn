@@ -1,4 +1,5 @@
 # pwntools translate
+[![Docs](https://readthedocs.org/projects/pwntoolsdocinzh-cn/badge/?version=master)](http://pwntoolsdocinzh-cn.readthedocs.io/en/master/?badge=master)
 [![Docs](https://readthedocs.org/projects/pwntoolsdocinzh-cn/badge/?version=dev)](http://pwntoolsdocinzh-cn.readthedocs.io/en/dev/?badge=dev)
 
 ## 0x00 说明
@@ -13,3 +14,4 @@
 
 - About pwntools
 - Installation
+
