@@ -29,7 +29,7 @@ Ubuntu
 Mac OS X
 ^^^^^^^^^^^^^^^^
 
-Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装`brew <http://brew.sh>`__ 之后, 从这个链接获取我们的二进制工具：  `binutils
+Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装 `brew <http://brew.sh>`__  之后, 从这个链接获取我们的二进制工具：  `binutils
 repo <https://github.com/Gallopsled/pwntools-binutils/>`__.
 
 .. code-block:: bash
