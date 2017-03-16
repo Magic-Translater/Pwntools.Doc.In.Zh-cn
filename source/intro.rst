@@ -2,30 +2,27 @@
 
    from pwn import *
 
-Getting Started
+开始使用
 ========================
 
-To get your feet wet with pwntools, let's first go through a few examples.
+为了更直观的感受pwntools，我们通过几个例子来演示。
 
-When writing exploits, pwntools generally follows the "kitchen sink" approach.
+当你在写自己的exp时，pwntools会遵循“洗碗槽”的方法。
+
 
     >>> from pwn import *
 
-This imports a lot of functionality into the global namespace.  You can now
-assemble, disassemble, pack, unpack, and many other things with a single function.
+这将引用pwntools进入当前的命名空间。你现在可以用一些简单函数进行汇编，反汇编，pack，unpack等等其他操作。
 
-A full list of everything that is imported is available on :doc:`globals`.
+整个pwntools的使用文档在这里查看： :doc:`globals`.
 
 
-Making Connections
+取得连接
 ------------------
 
-You need to talk to the challenge binary in order to pwn it, right?
-pwntools makes this stupid simple with its :mod:`pwnlib.tubes` module.
+在pwn一个二进制挑战之前你是不是需要和相关的端口取得关联？引用 :mod:`pwnlib.tubes` 将会使它变得相当简单。
 
-This exposes a standard interface to talk to processes, sockets, serial ports,
-and all manner of things, along with some nifty helpers for common tasks.
-For example, remote connections via :mod:`pwnlib.tubes.remote`.
+这个模块会建立一个与进程、socket、端口和其他相关的连接，例如，远程操作连接可以通过 :mod:`pwnlib.tubes.remote` 来实现。
 
     >>> conn = remote('ftp.debian.org',21)
     >>> conn.recvline() # doctest: +ELLIPSIS
@@ -37,7 +34,7 @@ For example, remote connections via :mod:`pwnlib.tubes.remote`.
     'Please specify the password.\r\n'
     >>> conn.close()
 
-It's also easy to spin up a listener
+运转一个监听器也相当简单：
 
     >>> l = listen()
     >>> r = remote('localhost', l.lport)
@@ -46,7 +43,7 @@ It's also easy to spin up a listener
     >>> c.recv()
     'hello'
 
-Interacting with processes is easy thanks to :mod:`pwnlib.tubes.process`.
+与一个进程进行交互你将用到 :mod:`pwnlib.tubes.process`.
 
 ::
 
@@ -58,17 +55,13 @@ Interacting with processes is easy thanks to :mod:`pwnlib.tubes.process`.
     'hello world\n'
     >>> sh.close()
 
-Not only can you interact with processes programmatically, but you can
-actually **interact** with processes.
+你现在不仅可以以编码的方式和进程通信，也可以与之 **交互** ：
 
     >>> sh.interactive() # doctest: +SKIP
     $ whoami
     user
 
-There's even an SSH module for when you've got to SSH into a box to perform
-a local/setuid exploit with :mod:`pwnlib.tubes.ssh`.  You can quickly spawn
-processes and grab the output, or spawn a process and interact with it like
-a ``process`` tube.
+当你通过ssh方式进行漏洞利用的时候，可以使用 :mod:`pwnlib.tubes.ssh`.
 
 ::
 
@@ -84,15 +77,12 @@ a ``process`` tube.
     'hello world\n'
     >>> shell.close()
 
-Packing Integers
+包装整数
 ------------------
 
-A common task for exploit-writing is converting between integers as Python
-sees them, and their representation as a sequence of bytes.
-Usually folks resort to the built-in ``struct`` module.
+在编写exp时最常见的工作就是再整数之间转换，和它们的在字节上的表现。通常情况下，人们使用 ``struct`` 这个模块。
 
-pwntools makes this easier with :mod:`pwnlib.util.packing`.  No more remembering
-unpacking codes, and littering your code with helper routines.
+pwntools通过 :mod:`pwnlib.util.packing` 这一模块使之实现十分简单。  不需要再记住解包装的代码, 只需要看着说明文档进行编码工作就好.
 
     >>> import struct
     >>> p32(0xdeadbeef) == struct.pack('I', 0xdeadbeef)
@@ -101,29 +91,28 @@ unpacking codes, and littering your code with helper routines.
     >>> u32('abcd') == struct.unpack('I', 'abcd')[0]
     True
 
-The packing/unpacking operations are defined for many common bit-widths.
+包装和解包装的操作可以被定义为各种位宽：
 
     >>> u8('A') == 0x41
     True
 
-Setting the Target Architecture and OS
+设置目标系统及架构
 --------------------------------------
 
-The target architecture can generally be specified as an argument to the routine that requires it.
+目标的系统及架构可以在这里被简单定义为一个你需要的参数：
 
     >>> asm('nop')
     '\x90'
     >>> asm('nop', arch='arm')
     '\x00\xf0 \xe3'
 
-However, it can also be set once in the global ``context``.  The operating system, word size, and endianness can also be set here.
-
+然而，它只能在全局 ``context`` 设置一次，操作系统，字节序，位宽都可以在那里设定。
     >>> context.arch      = 'i386'
     >>> context.os        = 'linux'
     >>> context.endian    = 'little'
     >>> context.word_size = 32
 
-Additionally, you can use a shorthand to set all of the values at once.
+另外，你也可以一次就设置好这些变量：
 
     >>> asm('nop')
     '\x90'
@@ -136,32 +125,31 @@ Additionally, you can use a shorthand to set all of the values at once.
 
     >>> context.clear()
 
-Setting Logging Verbosity
+设置日志记录级别
 -------------------------
 
-You can control the verbosity of the standard pwntools logging via ``context``.
+另外，你也可以一次就设置好这些变量：
 
-For example, setting
+例如，这样设置：
 
     >>> context.log_level = 'debug'
 
-Will cause all of the data sent and received by a ``tube`` to be printed to the screen.
+将接收到和发送到所有数据打印在屏幕上
 
 .. doctest::
    :hide:
 
     >>> context.clear()
 
-Assembly and Disassembly
+汇编和反汇编
 ------------------------
 
-Never again will you need to run some already-assembled pile of shellcode
-from the internet!  The :mod:`pwnlib.asm` module is full of awesome.
+你总会运行从互联网上得来的shellcode，这时你也可以使用 :mod:`pwnlib.asm` 模块。
 
     >>> asm('mov eax, 0').encode('hex')
     'b800000000'
 
-But if you do, it's easy to suss out!
+这样做，会更加容易：
 
     >>> print disasm('6a0258cd80ebf9'.decode('hex'))
        0:   6a 02                   push   0x2
@@ -169,24 +157,19 @@ But if you do, it's easy to suss out!
        3:   cd 80                   int    0x80
        5:   eb f9                   jmp    0x0
 
-However, you shouldn't even need to write your own shellcode most of the
-time!  pwntools comes with the :mod:`pwnlib.shellcraft` module, which is
-loaded with useful time-saving shellcodes.
+但是，你大多数情况下使用自己编写的shellcode，pwntools提供了 :mod:`pwnlib.shellcraft` 这个模块，可以在你编写自己的shellcode时提供帮助。
 
-Let's say that we want to `setreuid(getuid(), getuid())` followed by `dup`ing
-file descriptor 4 to `stdin`, `stdout`, and `stderr`, and then pop a shell!
+如果说我们想让 `setreuid(getuid(), getuid())` 在 复制文件描述符之后to `stdin`, `stdout`, 接着 `stderr`, 然后就可以弹出 shell!
 
     >>> asm(shellcraft.setreuid() + shellcraft.dupsh(4)).encode('hex') # doctest: +ELLIPSIS
     '6a3158cd80...'
 
 
-Misc Tools
+杂项工具
 ----------------------
+多亏有了 :mod:`pwnlib.util.fiddling` 这个模块，我们不需要写另外的hexdump。
 
-Never write another hexdump, thanks to :mod:`pwnlib.util.fiddling`.
-
-
-Find offsets in your buffer that cause a crash, thanks to :mod:`pwnlib.cyclic`.
+在触发的崩溃中寻找偏移量或缓冲区大小，可以使用模块 :mod:`pwnlib.cyclic`.
 
     >>> print cyclic(20)
     aaaabaaacaaadaaaeaaa
@@ -194,10 +177,10 @@ Find offsets in your buffer that cause a crash, thanks to :mod:`pwnlib.cyclic`.
     >>> print cyclic_find('faab')
     120
 
-ELF Manipulation
+操纵ELF文件
 ----------------
 
-Stop hard-coding things!  Look them up at runtime with :mod:`pwnlib.elf`.
+停止用手写代码的工作吧！看一看 :mod:`pwnlib.elf` 这个模块。
 
     >>> e = ELF('/bin/cat')
     >>> print hex(e.address) #doctest: +SKIP
@@ -209,7 +192,7 @@ Stop hard-coding things!  Look them up at runtime with :mod:`pwnlib.elf`.
     >>> print hex(e.plt['write']) #doctest: +SKIP
     0x401680
 
-You can even patch and save the files.
+你也可以给ELF文件打补丁或是保存。
 
     >>> e = ELF('/bin/cat')
     >>> e.read(e.address+1, 3)
@@ -218,4 +201,3 @@ You can even patch and save the files.
     >>> e.save('/tmp/quiet-cat')
     >>> disasm(file('/tmp/quiet-cat','rb').read(1))
     '   0:   c3                      ret'
-

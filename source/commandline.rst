@@ -7,10 +7,10 @@
 
     context.defaults.copy = old
 
-Command Line Tools
+命令行工具
 ========================
 
-pwntools comes with a handful of useful command-line utilities which serve as wrappers for some of the internal functionality.
+pwntools附带一些有用的命令行工具，作为内部功能的封装器。
 
 .. toctree::
 
