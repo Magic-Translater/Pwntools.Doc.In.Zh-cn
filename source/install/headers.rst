@@ -1,4 +1,4 @@
-Python Development Headers
+Python 开发环境
 -----------------------------
 
 一些 pwntools' 的Python 依赖于本地扩展 (例如, Paramiko 依赖 PyCrypto).
@@ -15,4 +15,4 @@ Ubuntu
 Mac OS X
 ^^^^^^^^^^^^^^^^
 
-No action needed.
+无需进行此项操作。

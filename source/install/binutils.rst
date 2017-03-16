@@ -10,7 +10,7 @@
 Ubuntu
 ^^^^^^^^^^^^^^^^
 
-对于从Ubuntu 12.04到15.10的发行版，你首先需要添加pwntools的`个人包存档库 <http://binutils.pwntools.com>`__。
+对于从Ubuntu 12.04到15.10的发行版，你首先需要添加pwntools的 `个人包存档库 <http://binutils.pwntools.com>`__。
 
 对于 Ubuntu Xenial (16.04) 已经拥有官方的包，不需要做下面的步骤。
 
@@ -29,7 +29,7 @@ Ubuntu
 Mac OS X
 ^^^^^^^^^^^^^^^^
 
-Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装`brew <http://brew.sh>`__ 之后, 从这个链接获取我们的二进制工具： `binutils
+Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装`brew <http://brew.sh>`__ 之后, 从这个链接获取我们的二进制工具：  `binutils
 repo <https://github.com/Gallopsled/pwntools-binutils/>`__.
 
 .. code-block:: bash
