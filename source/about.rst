@@ -11,7 +11,7 @@ About pwntools
 * 我们更愿意拥有一个“寻常的”python模块结构，来允许使用者更快速的了解使用pwntools
 * 我们想拥有更多的意外效果，特别是将终端设为raw模式
 
-为使上面两个目标实现，我们决定开发两个不同的python模块， `pwnlib` 将会成为一个整洁的python模块，而:模块:`pwn`将成为我们在CTF中使用和编写exp的模块。
+为使上面两个目标实现，我们决定开发两个不同的python模块， `pwnlib` 将会成为一个整洁的python模块，而 `pwn` 将成为我们在CTF中使用和编写exp的模块。
 
  `pwn` --- 为CTF优化的工具箱
 -----------------------------------------
@@ -23,7 +23,7 @@ About pwntools
 * 可以在子模块中引用所有 `pwnlib` 顶级模块中的函数，这意味着如果你使用 ``import pwn`` 或者 ``from pwn import *`` 两行代码之一，都会有权使用你所想要使用的一切去完成exp的编写。
 * 调用 ``pwnlib.term.init()`` 函数将会使当前终端处于raw模式，并且在功能性上实现之前达不到的效果。
 * 通过 ``pwnlib.context.log_level`` 设置信息
-* 试图解析 `sys.argv` 中的一些值，并且会移动已成功解析的值。
+* 试图解析 ``sys.argv`` 中的一些值，并且会移动已成功解析的值。
 
  `pwnlib` --- 寻常的python模块
 ---------------------------------------
@@ -32,6 +32,6 @@ About pwntools
 
 这个模块是我们使用“纯净”python开发的，一般地，我们不想在引用 ``pwnlib`` 或是在使用其子模块时出现这样那样的副作用。
 
-大多数情况下，你只会得到你想引用的功能。例如如果你不引用 `import pwnlib.util` ，你将没有权使用 ``pwnlib.util.packing`` 这个子模块。
+大多数情况下，你只会得到你想引用的功能。例如如果你不引用 ``import pwnlib.util`` ，你将没有权使用 ``pwnlib.util.packing`` 这个子模块。
 
 尽管pwnlib中有一些特例，例如 ``pwnlib.shellcraft`` ,影响这整个模块的简洁，但它们仍可在没有隐性副作用的情况下被引用。
