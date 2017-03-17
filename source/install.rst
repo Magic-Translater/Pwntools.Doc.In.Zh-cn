@@ -6,7 +6,7 @@ pwntools在ubuntu 12.04和 14.04系统上支持的最好，但在功能上讲也
 先决条件
 -------------
 
-为了能使`pwntools`发挥的更棒，你应该安装下列的系统库。
+为了能使 `pwntools` 发挥的更棒，你应该安装下列的系统库。
 
 .. toctree::
    :maxdepth: 3
@@ -17,7 +17,7 @@ pwntools在ubuntu 12.04和 14.04系统上支持的最好，但在功能上讲也
 最新发行版
 -----------------
 
-现在pwntools是一个``pip``包。
+现在pwntools是一个 ``pip`` 包。
 
 .. code-block:: bash
 
