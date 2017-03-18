@@ -14,3 +14,8 @@
 
 - About pwntools
 - Installation
+
+## 关于协作方式
+
+详见`read_first.md`
+
