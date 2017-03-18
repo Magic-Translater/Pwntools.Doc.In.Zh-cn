@@ -1,12 +1,12 @@
 安装
 ============
 
-pwntools在ubuntu 12.04和 14.04系统上支持的最好，但在功能上讲也可以在Posix系的系统上工作（Debian, Arch, FreeBSD, OSX, 等等）。
+pwntools对ubuntu 12.04和 14.04系统支持地最好，但大多数功能在符合Posix标准的系统上（Debian, Arch, FreeBSD, OSX等等）应该也可以正常使用。
 
-先决条件
+准备
 -------------
 
-为了能使 `pwntools` 发挥的更棒，你应该安装下列的系统库。
+为了能够充分利用 `pwntools` 的功能，你应该安装下列的系统库。
 
 .. toctree::
    :maxdepth: 3
@@ -17,7 +17,7 @@ pwntools在ubuntu 12.04和 14.04系统上支持的最好，但在功能上讲也
 最新发行版
 -----------------
 
-现在pwntools是一个 ``pip`` 包。
+你可以利用 ``pip`` 安装pwntools。
 
 .. code-block:: bash
 

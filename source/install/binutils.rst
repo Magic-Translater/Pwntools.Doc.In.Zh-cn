@@ -1,18 +1,18 @@
 二进制工具
 -------------
 
-对外来架构的汇编（比如在Mac OS X上汇编Sparc shellcode），需要各种跨版本的二进制工具的安装，我们已尽可能使安装过程流畅。
+对国外的系统架构的汇编（比如在Mac OS X上汇编Sparc shellcode），我们需要安装交叉编译版本的binutils，我们尽可能使得这个安装过程流畅一点。
 
-在下列的例子中，将你自己的目标架构代替$ARCH(例如arm, mips64, vax等等)。
+在下列的例子中，使用你的系统架构代替$ARCH(例如arm, mips64, vax等等)。
 
-编译二进制工具在现代8核计算机上大约花费60秒。
+在一个现代化的8核计算机上编译binutils大约花费60秒。
 
 Ubuntu
 ^^^^^^^^^^^^^^^^
 
-对于从Ubuntu 12.04到15.10的发行版，你首先需要添加pwntools的 `个人包存档库 <http://binutils.pwntools.com>`__。
+对于Ubuntu 12.04到15.10的发行版，你需要添加pwntools的 `个人包存档库 <http://binutils.pwntools.com>`__。
 
-对于 Ubuntu Xenial (16.04) 已经拥有官方的包，不需要做下面的步骤。
+Ubuntu Xenial (16.04) 已经拥有官方的包，不需要做下面的步骤。
 
 .. code-block:: bash
 
@@ -20,7 +20,7 @@ Ubuntu
     $ apt-add-repository ppa:pwntools/binutils
     $ apt-get update
 
-接着，安装符合自己计算机架构的二进制工具。
+接着，针对于你的系统架构安装binutils。
 
 .. code-block:: bash
 
@@ -29,7 +29,7 @@ Ubuntu
 Mac OS X
 ^^^^^^^^^^^^^^^^
 
-Mac OS X的安装非常简单，但是需要源码编译安装，然而，我们已经有了homebrew，一条命令就可以解决。安装 `brew <http://brew.sh>`__  之后, 从这个链接获取我们的二进制工具：  `binutils
+在Mac OS X上安装binutils非常简单，但是需要源码编译安装。然而，既然我们已经有了homebrew，我们就可以使用一条命令来解决。安装 `brew <http://brew.sh>`__  之后, 我们只需要从binutils中获取我们的二进制工具：  `binutils
 repo <https://github.com/Gallopsled/pwntools-binutils/>`__.
 
 .. code-block:: bash
@@ -39,7 +39,7 @@ repo <https://github.com/Gallopsled/pwntools-binutils/>`__.
 其他系统
 ^^^^^^^^^^^^^^^^
 
-如果你想通过自己的手动编译安装，并且不是上面两个系统之一，编译二进制工具也非常简单，运行下面的脚本即可。
+如果你想通过自己的手动编译安装，并且不是上面两个系统之一，编译binutils也非常简单，运行下面的脚本即可。
 
 .. code-block:: bash
 
