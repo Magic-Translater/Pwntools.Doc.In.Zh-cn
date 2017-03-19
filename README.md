@@ -1,10 +1,9 @@
 # pwntools translate
 [![Docs](https://readthedocs.org/projects/pwntoolsdocinzh-cn/badge/?version=master)](http://pwntoolsdocinzh-cn.readthedocs.io/en/master/?badge=master)
-[![Docs](https://readthedocs.org/projects/pwntoolsdocinzh-cn/badge/?version=dev)](http://pwntoolsdocinzh-cn.readthedocs.io/en/dev/?badge=dev)
 
 ## 0x00 说明
 
-这是一个为[Pwntools](https://github.com/Gallopsled/pwntools)进行汉化的项目。
+这是一个将[Pwntools](https://github.com/Gallopsled/pwntools)进行汉化的项目。
 
 * participator : passexcel, DrimTuer, iphan, swing, iromise
 * pwntools offical docs : http://docs.pwntools.com/en/stable/
@@ -15,6 +14,6 @@
 - About pwntools
 - Installation
 
-## 关于协作方式
+## 协作与贡献
 
 详见`read_first.md`
