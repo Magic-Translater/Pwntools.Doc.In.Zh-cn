@@ -1,12 +1,11 @@
 pwntools
 ====================================
 
-``pwntools`` is a CTF framework and exploit development library.
-Written in Python, it is designed for rapid prototyping and development,
-and intended to make exploit writing as simple as possible.
+``pwntools`` 是一个 CTF 框架和进行漏洞利用的开发库。
 
-The primary location for this documentation is at docs.pwntools.com_, which uses
-readthedocs_. It comes in three primary flavors:
+本框架使用 Python 编写，是为了拥有更快的开发速度， 也是为了让漏洞利用更加容易。
+
+我们使用了 readthedocs_ ， 而本项目的文档在 docs.pwntools.com_ ，有以下三个分支：
 
 - Stable_
 - Beta_
@@ -19,7 +18,7 @@ readthedocs_. It comes in three primary flavors:
 .. _Dev: https://docs.pwntools.com/en/dev
 
 
-Getting Started
+开始
 ---------------
 
 .. toctree::
@@ -36,7 +35,7 @@ Getting Started
 Module Index
 ------------
 
-Each of the ``pwntools`` modules is documented here.
+ ``pwntools`` 每一个模块的文档都在这里。
 
 .. toctree::
    :maxdepth: 1
