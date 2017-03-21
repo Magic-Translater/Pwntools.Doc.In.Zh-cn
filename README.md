@@ -7,7 +7,7 @@
 
 * participator : passexcel, DrimTuer, iphan, swing, iromise
 * pwntools offical docs : http://docs.pwntools.com/en/stable/
-* 中文地址: http://pwntoolsdocinzh-cn.readthedocs.io/en/dev/#
+* 中文地址: http://pwntoolsdocinzh-cn.readthedocs.io/en/master/
 
 ## Already Done
 
