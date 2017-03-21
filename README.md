@@ -13,6 +13,7 @@
 
 - About pwntools
 - Installation
+- Getting Started
 
 ## 协作与贡献
 
