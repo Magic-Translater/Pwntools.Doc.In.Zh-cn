@@ -1,4 +1,4 @@
-:mod:`pwnlib.gdb` --- Working with GDB
+:mod:`pwnlib.gdb` --- 使用 GDB
 ======================================
 
 .. automodule:: pwnlib.gdb

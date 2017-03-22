@@ -5,94 +5,96 @@
 ``from pwn import *``
 ========================
 
-The most common way that you'll see pwntools used is
+使用pwntools的最常见的方式是这样的：
 
     >>> from pwn import *
 
-Which imports a bazillion things into the global namespace to make your life easier.
+这种一下子把无数东西包含进全局命名空间的方式会让你的生活更轻松点 :)
 
-This is a quick list of most of the objects and routines imported, in rough order of importance and frequency of use.
+下面的列表列出了包含进来的大多数对象和功能函数，简略的注明了重要程度和使用频率。
 
 - ``context``
     - :data:`pwnlib.context.context`
-    - Responsible for most of the pwntools convenience settings
-    - Set `context.log_level = 'debug'` when troubleshooting your exploit
-    - Scope-aware, so you can disable logging for a subsection of code via ``pwnlib.context.ContextType.local``
+    - 负责pwntools中绝大多数的设定
+    - 调试exploit时可以设定为 `context.log_level = 'debug'`
+    - 作用域清晰，所以你可以通过 ``pwnlib.context.ContextType.local`` 禁用一段代码的日志记录
 - ``remote``, ``listen``, ``ssh``, ``process``
     - :mod:`pwnlib.tubes`
-    - Super convenient wrappers around all of the common functionality for CTF challenges
-    - Connect to anything, anywhere, and it works the way you want it to
-    - Helpers for common tasks like ``recvline``, ``recvuntil``, ``clean``, etc.
-    - Interact directly with the application via ``.interactive()``
-- ``p32`` and ``u32``
+    - 对所有CTF比赛中常用功能的超级包装，非常好用
+    - 连接到任意目标，任意地点上，并且工作起来就像你想要的一样
+    - 普通会话中的实用工具 ``recvline``, ``recvuntil``, ``clean``, etc.
+    - 通过 ``.interactive()`` 直接地与程序进行交互
+- ``p32`` 和 ``u32``
     - :mod:`pwnlib.util.packing`
-    - Useful functions to make sure you never have to remember if ``'>'`` means signed or unsigned for ``struct.pack``, and no more ugly ``[0]`` index at the end.
-    - Set ``signed`` and ``endian`` in sane manners (also these can be set once on ``context`` and not bothered with again)
-    - Most common sizes are pre-defined (``u8``, ``u64``, etc), and :func:`pwnlib.util.packing.pack` lets you define your own.
+    - 一个实用程序，确保你再也不用去记住 ``'>'`` 是不是 ``struct.pack`` 的符号了。同时也不需要在末尾加上累赘的 ``[0]`` 了。
+    - 在sane manners中设置 ``signed`` 和 ``endian`` (也可以在 ``context`` 中一次性设定完成，这样就不会被重复设定困扰了)。
+    - 大多数常用长度已经预定义好( ``u8``, ``u64``, 等), 并且你可以使用 :func:`pwnlib.util.packing.pack` 定义自己的长度。
 - ``log``
     - :mod:`pwnlib.log`
-    - Make your output pretty!
-- ``cyclic`` and ``cyclic_func``
+    - 使你的输出更漂亮！
+- ``cyclic`` 和 ``cyclic_func``
     - :mod:`pwnlib.util.cyclic`
-    - Utilities for generating strings such that you can find the offset of any given substring given only N (usually 4) bytes.  This is super useful for straight buffer overflows.  Instead of looking at 0x41414141, you could know that 0x61616171 means you control EIP at offset 64 in your buffer.
-- ``asm`` and ``disasm``
+    - 一个生成字符串的工具。只需任意给定N字节(N一般为4)个长度的子串，就能找到它在主字符串中的偏移量。它在测定缓冲区溢出所需的长度时非常好用。再也不需要盯着0x41414141看了，你只要知道0x61616171就代表着你能在缓冲区的64字节偏移处控制EIP。
+- ``asm`` 和 ``disasm``
     - :mod:`pwnlib.asm`
-    - Quickly turn assembly into some bytes, or vice-versa, without mucking about
-    - Supports any architecture for which you have a binutils installed
-    - Over 20 different architectures have pre-built binaries at `ppa:pwntools/binutils <https://launchpad.net/~pwntools/+archive/ubuntu/binutils>`_.
+    - 快速的将汇编转换为字节码，反之亦然，并省去复杂的转换方法。
+    - 支持你的工具集中的任一架构。
+    - 超过20种架构的支持，在这里链接： `ppa:pwntools/binutils <https://launchpad.net/~pwntools/+archive/ubuntu/binutils>`_.
 - ``shellcraft``
     - :mod:`pwnlib.shellcraft`
-    - Library of shellcode ready to go
-    - ``asm(shellcraft.sh())`` gives you a shell
-    - Templating library for reusability of shellcode fragments
+    - 内置的shellcode库。
+    - ``asm(shellcraft.sh())`` 来得到一个shellcode
+    - 一个重复利用shellcode片段的模板库。
 - ``ELF``
     - :mod:`pwnlib.elf`
-    - ELF binary manipulation tools, including symbol lookup, virtual memory to file offset helpers, and the ability to modify and save binaries back to disk
+    - 处理二进制文件的工具，包括符号查找(symbol lookup)，计算虚拟地址的偏移，修改二进制文件并保存磁盘中。
 - ``DynELF``
     - :mod:`pwnlib.dynelf`
-    - Dynamically resolve functions given only a pointer to any loaded module, and a function which can leak data at any address
+    - 只需给定一个指向任意已装载的模块的指针，以及一个能泄露任意地址上数据的函数，便能动态的搜索到任意函数。
 - ``ROP``
     - :mod:`pwnlib.rop`
-    - Automatically generate ROP chains using a DSL to describe what you want to do, rather than raw addresses
-- ``gdb.debug`` and ``gdb.attach``
+    - 自动的生成ROP链，使用DSL描述你的目的，而不是使用直接的内存地址。
+- ``gdb.debug`` 和 ``gdb.attach``
     - :mod:`pwnlib.gdb`
-    - Launch a binary under GDB and pop up a new terminal to interact with it.  Automates setting breakpoints and makes iteration on exploits MUCH faster.
-    - Alternately, attach to a running process given a PID, ``pwnlib.tubes`` object, or even just a socket that's connected to it
+    - 在GDB中运行一个二进制文件，并弹出一个新的终端(Terminal)进行交互。可以自动设置断点，使exploit中的迭代更快速。
+    - 或者，也可以附加到给定PID的进程上， ``pwnlib.tubes`` 对象上，甚至是一个连接到它的socket上。
 - ``args``
-    - Dictionary contining all-caps command-line arguments for quick access
-    - Run via ``python foo.py REMOTE=1`` and ``args['REMOTE'] == '1'``.
-    - Can also control logging verbosity and terminal fancyness
+    - 使用连续大写的命令行参数对字典进行快速访问
+    - 运行实例： ``python foo.py REMOTE=1`` 和 ``args['REMOTE'] == '1'``.
+    - 也能用来控制日志记录方式和终端偏好设定
         - `NOTERM`
         - `SILENT`
         - `DEBUG`
 - ``randoms``, ``rol``, ``ror``, ``xor``, ``bits``
     - :mod:`pwnlib.util.fiddling`
-    - Useful utilities for generating random data from a given alphabet, or simplifying math operations that usually require masking off with `0xffffffff` or calling `ord` and `chr` an ugly number of times
+    - 一些实用工具：从给定字母表生成随机数据，进行简易的数学运算，比如需要经常进行的"用0xffffffff进行遮罩运算"，这样就不需要数次使用麻烦的*ord*，*chr*操作了。
+                                                          <!--2#比特位的遮罩运算...怎么翻译才好呢？-->
+
 - ``net``
     - :mod:`pwnlib.util.net`
-    - Routines for querying about network interfaces
+    - 网络接口的相关查询
 - ``proc``
     - :mod:`pwnlib.util.proc`
-    - Routines for querying about processes
+    - 系统进程的相关查询
 - ``pause``
-    - It's the new ``getch``
+    - 这是一个全新的 ``getch``
 - ``safeeval``
     - :mod:`pwnlib.util.safeeval`
-    - Functions for safely evalutaing python code without nasty side-effects.
+    - 可以安全执行python代码的函数，而且没有任何副作用。
 
-These are all pretty self explanatory, but are useful to have in the global namespace.
+下面这些函数的功能就像他们的名字所表达的一样。他们同样易于使用，所以也被添加到到了全局命名空间。
 
 - ``hexdump``
-- ``read`` and ``write``
-- ``enhex`` and ``unhex``
+- ``read`` 和 ``write``
+- ``enhex`` 和 ``unhex``
 - ``more``
 - ``group``
-- ``align`` and ``align_down``
-- ``urlencode`` and ``urldecode``
+- ``align`` 和 ``align_down``
+- ``urlencode`` 和 ``urldecode``
 - ``which``
 - ``wget``
 
-Additionally, all of the following modules are auto-imported for you.  You were going to do it anyway.
+另外，下面这些模块已经自动为你包含进来了。你可以在任何地方尝试使用他们。
 
 - ``os``
 - ``sys``

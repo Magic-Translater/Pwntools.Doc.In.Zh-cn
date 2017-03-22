@@ -4,7 +4,7 @@
    import logging
    log = pwnlib.log.getLogger('pwnlib.context')
 
-:mod:`pwnlib.context` --- Setting runtime variables
+:mod:`pwnlib.context` --- 设定运行时变量
 =====================================================
 
 .. autodata:: pwnlib.context.context
