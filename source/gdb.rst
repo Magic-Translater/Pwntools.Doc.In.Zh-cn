@@ -46,7 +46,7 @@ GDB Server(qemu,gdbserver) 命令的程序，寻找目标二进制文件的路�
 
 这和debug_shellcode一样，不仅可以使用所有已经定义在GDB里的符号，而且它还省去了我们对asm的显式调用。
 
-``pwnlib.gdb.find_module_address(binary,ssh=None,ulimit=False)``
+``pwnlib.gdb.find_module_addresses(binary,ssh=None,ulimit=False)``
 
 通过使用gdb来查找模块。
 
