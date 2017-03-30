@@ -70,3 +70,50 @@ Dynelf 知道如何借助 ``pwnlib.memleak.MemLeak``. 通过 infoleak 或者 mem
 
         为了充分的灵活性，这两种机制都被充分地使用了。
 
+   :func:`__init__(self, leak, pointer=None, elf=None)`
+
+   这是DynELF的一个实例化方法，通过它，如果我们给了 :class:`pwnlib.memleak.MemLeak` leaker,
+   以及一个binary文件中的指针，我们可以生成一个可以解析运行库中符号的实例对象。
+   
+   参数：
+       - **leak** (MemLeak) - 泄漏内存的 pwnlib.memleak.MemLeak 的实例。
+       - **pointer** (int)  - 已经被load的ELF文件中的一个指针。
+       - **elf** (str,ELF)  - ELF文件对应的路径，或者说一个已经加载的 :class:`pwnlib.elf.ELF` 。
+
+   :func:`bases()`
+
+   解析所有已经被加载的二进制文件的基地址。
+
+   返回一个将库路径映射到它的基地址的字典。
+
+   :func:`static find_base(leak,ptr)`
+
+   给定一个 :class:`pwnlib.memleak.Memleak` 对象，以及一个其二进制文件内部的binary，找到它的基地址。
+
+   :func:`heap()`
+
+   通过 __curbrk 来查找当前堆的基地址，这个符号在链接器中已经被导出了，指向当前的brk。
+
+   :func:`lookup(symb=None,lib=None)-->int`
+
+   在lib中找到对应符号的地址。参数如下
+
+      - **symb** (str) - 要查找的名字。
+      - **lib** (str)  - 用来匹配库文件名的子串。缺省情况下会搜索当前的库，如果设置为 ``libc`` , ``libc.so``就会被查找。
+
+   返回对应符号的地址，或者None。
+
+   :func:`stack()`  
+
+   通过 __envrion （这个符号是由libc导出的，指向环境变量部分）来寻找一个指向栈上的变量，
+
+   :func:`dynamic`
+
+   返回指向 ``.DYNAMIC`` 的指针。
+
+
+
+
+
+
+
