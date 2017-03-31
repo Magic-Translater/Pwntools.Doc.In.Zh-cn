@@ -111,9 +111,24 @@ Dynelf 知道如何借助 ``pwnlib.memleak.MemLeak``. 通过 infoleak 或者 mem
 
    返回指向 ``.DYNAMIC`` 的指针。
 
+   :func:`elfclass(self)` 
 
+   返回对应的二进制文件的类型。
 
+   :func:`libc(self)`
 
+   得到远程libc.so的build版本，下载对应的文件，并且使用正确的基地址加载 ``ELF`` 对象。
 
+   返回一个ELF对象，或者什么也不返回。
 
+   :func:`link_map(self)`
 
+   返回指向运行时的link_map对象。
+
+``pwnlib.dynelf.gnu_hash(str)-->int``
+
+为字符串生成GNU格式的hash值。
+
+``pwnlib.dynelf.sysv_hash(str)-->int``
+
+为字符串生成SYSV格式的hash值。
