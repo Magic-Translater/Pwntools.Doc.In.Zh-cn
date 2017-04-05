@@ -38,7 +38,8 @@ GDB Server(qemu,gdbserver) 命令的程序，寻找目标二进制文件的路�
       - **data** (str) - 经过汇编的shellcode。
       - **kwargs** (dict) -  传给context的参数(e.g arch='arm')。
 
-返回一个连接到stdin/stdout/stderr上的shellcode的进程管道。**感觉翻译不通顺**
+返回一个管道，这个管道会和stdin/stdout/stderr连接在一起。
+
 
 ``pwnlib.gdb.debug_assembly(*a,**kw)``
 
